@@ -1,5 +1,4 @@
 provider "digitalocean" {
-  #  token = ""
 }
 
 module "labels" {
