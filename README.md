@@ -30,7 +30,7 @@ Before using this Terraform configuration, make sure you have the following:
   1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/your-terraform-project.git
+   git clone https://github.com/opz0/terraform-digitalocean-labels.git
    ```
 1. Change into the project directory:
 
