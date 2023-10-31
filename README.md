@@ -1,62 +1,68 @@
 # terraform-digitalocean-labels
-# Terraform Infrastructure as Code (IaC) - DigitalOcean Labels Module
+# Terraform DigitalOcean Labels Module
 
 ## Table of Contents
-- [Overview](#overview)
-- [Prerequisites](#prerequisites)
-- [Usage](#usage)
-- [Module Inputs](#module-inputs)
-- [Module Outputs](#module-outputs)
-- [Contributing](#contributing)
-- [Authors](#authors)
-- [License](#license)
 
-## Overview
-This Terraform module creates structured labels for DigitalOcean resources with specific attributes.
+1. [Introduction](#introduction)
+2. [Prerequisites](#prerequisites)
+3. [Module Overview](#module-overview)
+4. [Usage](#usage)
+5. [Module Inputs](#module-inputs)
+6. [Module Outputs](#module-outputs)
+7. [Authors](#author)
+8. [License](#license)
 
+
+## Introduction
+This Terraform module creates labels for resources on DigitalOcean. Labels provide metadata and organization for resources to help you manage and identify them more effectively.
 ## Prerequisites
-- [Terraform](https://www.terraform.io/downloads.html) installed
-- DigitalOcean API token configured
+
+Before using this module, make sure you have the following requirements in place:
+
+- [Terraform](https://www.terraform.io/) installed.
+- DigitalOcean API token and authentication credentials.
+
+## Module Overview
+
+This module allows you to create labels for DigitalOcean resources. It accepts the following input variables:
+
+- `name` (Required): The name of the label.
+- `environment` (Required): The environment for which the label is intended.
+- `label_order` (Optional): An array that specifies the order of label elements.
+- `attributes` (Optional): An array of attributes to associate with the label.
 
 ## Usage
 
-1. Ensure you have the required provider configured in your Terraform environment.
+To use this module, you can include it in your Terraform configuration. Here's an example of how to do that:
 
-    ```hcl
-    provider "digitalocean" {}
-    ```
-
-2. Use the module by referencing its source and providing the required variables.
-
-    ```hcl
-    module "labels" {
-      source      = ".."  # Update with the correct path to the module
-      name        = "app"
-      environment = "test"
-      label_order = ["name", "environment"]
-      attributes  = ["private"]
-    }
-    ```
-
-3. Run `terraform init` and `terraform apply` to apply labels to DigitalOcean resources.
+```hcl
+module "labels" {
+  source      = "your_module_source" # Replace with the actual source URL or path to your module.
+  name        = "app"
+  environment = "test"
+  label_order = ["name", "environment"]
+  attributes  = ["private"]
+}
+```
+Make sure to replace "your_module_source" with the actual source URL or path to your module.
 
 ## Module Inputs
+- 'name' (string): The name of the label.
+- 'environment' (string): The environment for which the label is intended.
+- 'label_order' (list): An array that specifies the order of label elements.
+- 'attributes' (list): An array of attributes to associate with the label.
 
-- `name`: The name of the application or resource.
-- `environment`: The environment in which the resource exists.
-- `label_order`: The order in which labels should be applied.
-- `attributes`: Additional attributes to add to the labels.
+For a more detailed explanation of these variables, refer to the module's source code.
 
 ## Module Outputs
+This module does not have any outputs.
 
-- This module currently does not provide any outputs.
+# Examples
+For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
 
-## Contributing
-Feel free to contribute by opening issues or submitting pull requests. Your feedback and collaboration are welcome!
-
-## Authors
-- [Your Name]
-- [Co-author's Name, if applicable]
+## Author
+Your Name
+Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/opz0/terraform-digitalocean-labels/blob/readme/LICENSE) file for details.
