@@ -45,6 +45,18 @@ module "labels" {
 }
 ```
 Make sure to replace "your_module_source" with the actual source URL or path to your module.
+- Initialize the working directory:
+
+```bash
+terraform init
+```
+- Create a Terraform plan and apply the changes:
+
+```bash
+terraform plan
+terraform apply
+```
+- Confirm the changes and the resources that will be created, and enter yes to apply the changes.
 
 ## Module Inputs
 - 'name' (string): The name of the label.
