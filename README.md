@@ -1,87 +1,50 @@
 # terraform-digitalocean-labels
-# Terraform Configuration for DigitalOcean with Labels
-
-This Terraform configuration sets up resources on DigitalOcean and uses a custom "labels" module to manage labels for those resources.
+# Terraform DigitalOcean Labels Module
 
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Prerequisites](#prerequisites)
 - [Usage](#usage)
-- [Terraform Providers](#terraform-providers)
-- [Terraform Modules](#terraform-modules)
-- [Examples](#examples)
+- [Module Inputs](#module-inputs)
+- [Module Outputs](#module-outputs)
 - [License](#license)
 
+
 ## Introduction
-
-This Terraform configuration is designed to provision and manage resources on DigitalOcean, such as virtual machines or other infrastructure components. It also leverages a custom "labels" module for structured resource labeling.
-
-## Prerequisites
-
-Before using this Terraform configuration, make sure you have the following:
-
-- [Terraform](https://www.terraform.io/) installed on your machine.
-- A [DigitalOcean](https://www.digitalocean.com/) account.
-- Appropriate [DigitalOcean API credentials](https://www.digitalocean.com/docs/apis-clis/api/create-personal-access-token/) configured.
+This Terraform module creates labels for resources on DigitalOcean. Labels provide metadata and organization for resources to help you manage and identify them more effectively.
 
 ## Usage
 
-  1. Clone this repository to your local machine:
-
-   ```bash
-   git clone https://github.com/opz0/terraform-digitalocean-labels.git
-   ```
-1. Change into the project directory:
-
- ```bash
-cd your-terraform-project
-```
-2. Create a 'terraform.tfvars' file and provide your DigitalOcean API token:
-```hcl
-# terraform.tfvars
-digitalocean_token = "your-digitalocean-api-token"
-```
-3. Initialize the Terraform configuration:
- ```bash
-terraform init
-```
-4. Review and adjust the configuration in main.tf to suit your specific infrastructure needs.
-
-5. Apply the configuration to create and manage your resources:
- ```bash
-terraform apply
-```
-6. When prompted, confirm the changes.
-
-# Terraform Providers
-This configuration uses the following Terraform provider:
-
-[DigitalOcean Provider](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
-
-Make sure to configure your provider according to your DigitalOcean account settings.
-
-# Terraform Modules
+To use this module, you can include it in your Terraform configuration. Here's an example of how to do that:
 This configuration includes a custom "labels" module for managing resource labels. The module is used as follows:
 
 ```hcl
 module "labels" {
-  source      = ".."  # Replace with the actual path to the labels module
+  source      = "git::https://github.com/opz0/terraform-digitalocean-labels.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   label_order = ["name", "environment"]
   attributes  = ["private"]
 }
 ```
-Ensure that the 'source' attribute points to the correct path for your labels module.
+Make sure to replace "your_module_source" with the actual source URL or path to your module.
 
-# Examples
-For a more comprehensive example of using this configuration, please refer to the 'examples' directory within this repository.
+## Module Inputs
+- 'name' (string): The name of the label.
+- 'environment' (string): The environment for which the label is intended.
+- 'label_order' (list): An array that specifies the order of label elements.
+- 'attributes' (list): An array of attributes to associate with the label.
 
-# License
-This Terraform configuration is available under the [License Name] License.txt. For more details, please see the [LICENSE](https://github.com/opz0/terraform-digitalocean-labels/blob/readme/LICENSE.txt) file.
+For a more detailed explanation of these variables, refer to the module's source code.
 
-# Author
-[Your Name](https://github.com/yourusername)
+## Module Outputs
+This module does not have any outputs.
 
-Replace [License Name] and [Your Name] with the appropriate license and your information. Customize this README with additional details or instructions based on your specific project requirements.
+## Examples
+For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+
+## Author
+Your Name Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/opz0/terraform-digitalocean-labels/blob/readme/LICENSE) file for details.
