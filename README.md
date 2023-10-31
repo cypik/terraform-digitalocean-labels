@@ -35,6 +35,43 @@ This module allows you to create labels for DigitalOcean resources. It accepts t
 
 To use this module, you can include it in your Terraform configuration. Here's an example of how to do that:
 
+  1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/opz0/terraform-digitalocean-labels.git
+   ```
+1. Change into the project directory:
+
+ ```bash
+cd your-terraform-project
+```
+2. Create a 'terraform.tfvars' file and provide your DigitalOcean API token:
+```hcl
+# terraform.tfvars
+digitalocean_token = "your-digitalocean-api-token"
+```
+3. Initialize the Terraform configuration:
+ ```bash
+terraform init
+```
+4. Review and adjust the configuration in main.tf to suit your specific infrastructure needs.
+
+5. Apply the configuration to create and manage your resources:
+ ```bash
+terraform apply
+```
+6. When prompted, confirm the changes.
+
+# Terraform Providers
+This configuration uses the following Terraform provider:
+
+[DigitalOcean Provider](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs)
+
+Make sure to configure your provider according to your DigitalOcean account settings.
+
+# Terraform Modules
+This configuration includes a custom "labels" module for managing resource labels. The module is used as follows:
+
 ```hcl
 module "labels" {
   source      = "your_module_source" # Replace with the actual source URL or path to your module.
