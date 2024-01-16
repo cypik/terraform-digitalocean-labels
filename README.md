@@ -20,6 +20,7 @@ This Terraform module creates labels for resources on DigitalOcean. Labels provi
 To use this module, you can include it in your Terraform configuration. Here's an example of how to do that:
 This configuration includes a custom "labels" module for managing resource labels. The module is used as follows:
 # Example: labels
+
 ```hcl
 module "labels" {
   source      = "cypik/labels/digitalocean"
