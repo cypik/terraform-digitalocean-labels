@@ -22,7 +22,7 @@ This configuration includes a custom "labels" module for managing resource label
 # Example: labels
 ```hcl
 module "labels" {
-  source      = "cypik/labels/gcp"
+  source      = "cypik/labels/digitalocean"
   version     = "1.0.1"
   name        = "app"
   environment = "test"
