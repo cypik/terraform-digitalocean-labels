@@ -1,13 +1,15 @@
-# terraform-digitalocean-labels
-# Terraform DigitalOcean Labels Module
+# Terraform-digitalocean-labels
+# Terraform DigitalOcean cloud Labels Module
 
 ## Table of Contents
 
 - [Introduction](#introduction)
 - [Usage](#usage)
-- [Module Inputs](#module-inputs)
-- [Module Outputs](#module-outputs)
+- [EXAMPLES](#examples)
 - [License](#license)
+- [Author](#author)
+- [Inputs](#inputs)
+- [Outputs](#outputs)
 
 
 ## Introduction
@@ -17,34 +19,77 @@ This Terraform module creates labels for resources on DigitalOcean. Labels provi
 
 To use this module, you can include it in your Terraform configuration. Here's an example of how to do that:
 This configuration includes a custom "labels" module for managing resource labels. The module is used as follows:
-
+# Example: labels
 ```hcl
 module "labels" {
-  source      = "git::https://github.com/cypik/terraform-digitalocean-labels.git?ref=v1.0.0"
+  source      = "cypik/labels/gcp"
+  version     = "1.0.1"
   name        = "app"
   environment = "test"
   label_order = ["name", "environment"]
   attributes  = ["private"]
+  extra_tags = {
+    Application = "Demo"
+  }
 }
 ```
 Make sure to replace "your_module_source" with the actual source URL or path to your module.
 
-## Module Inputs
-- 'name' (string): The name of the label.
-- 'environment' (string): The environment for which the label is intended.
-- 'label_order' (list): An array that specifies the order of label elements.
-- 'attributes' (list): An array of attributes to associate with the label.
-
-For a more detailed explanation of these variables, refer to the module's source code.
-
-## Module Outputs
-This module does not have any outputs.
 
 ## Examples
-For detailed examples on how to use this module, please refer to the 'examples' directory within this repository.
+For detailed examples on how to use this module, please refer to the examples directory within this repository.
 
 ## Author
-Your Name Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
+Your Name Replace **MIT** and **Cypik** with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/cypik/terraform-digitalocean-labels/blob/master/LICENSE) file for details.
+This project is licensed under the **MIT** License - see the [LICENSE](https://github.com/cypik/terraform-digitalocean-labels/blob/master/LICENSE) file for details.
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.6 |
+| <a name="requirement_digitalocean"></a> [digitalocean](#requirement\_digitalocean) | >= 2.28.1 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | 2.34.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [digitalocean_tag.environment](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
+| [digitalocean_tag.id](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
+| [digitalocean_tag.managedby](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
+| [digitalocean_tag.name](https://registry.terraform.io/providers/digitalocean/digitalocean/latest/docs/resources/tag) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_attributes"></a> [attributes](#input\_attributes) | Additional attributes (e.g. `1`). | `list(any)` | `[]` | no |
+| <a name="input_delimiter"></a> [delimiter](#input\_delimiter) | Delimiter to be used between `organization`, `name`, `environment` and `attributes`. | `string` | `"-"` | no |
+| <a name="input_enabled"></a> [enabled](#input\_enabled) | Set to false to prevent the module from creating any resources. | `bool` | `true` | no |
+| <a name="input_environment"></a> [environment](#input\_environment) | Environment (e.g. `prod`, `dev`, `staging`). | `string` | `""` | no |
+| <a name="input_label_order"></a> [label\_order](#input\_label\_order) | Label order, e.g. `name`,`application`. | `list(any)` | <pre>[<br>  "name",<br>  "environment"<br>]</pre> | no |
+| <a name="input_managedby"></a> [managedby](#input\_managedby) | ManagedBy, eg 'cypik' | `string` | `"cypik"` | no |
+| <a name="input_name"></a> [name](#input\_name) | Name  (e.g. `app` or `cluster`). | `string` | `""` | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| <a name="output_environment"></a> [environment](#output\_environment) | Normalized environment. |
+| <a name="output_id"></a> [id](#output\_id) | Disambiguated ID. |
+| <a name="output_managedby"></a> [managedby](#output\_managedby) | Normalized managedby. |
+| <a name="output_name"></a> [name](#output\_name) | Normalized name. |
+<!-- END_TF_DOCS -->
