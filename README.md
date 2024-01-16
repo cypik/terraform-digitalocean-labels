@@ -20,7 +20,7 @@ This configuration includes a custom "labels" module for managing resource label
 
 ```hcl
 module "labels" {
-  source      = "git::https://github.com/opz0/terraform-digitalocean-labels.git?ref=v1.0.0"
+  source      = "git::https://github.com/cypik/terraform-digitalocean-labels.git?ref=v1.0.0"
   name        = "app"
   environment = "test"
   label_order = ["name", "environment"]
@@ -47,4 +47,4 @@ For detailed examples on how to use this module, please refer to the 'examples' 
 Your Name Replace '[License Name]' and '[Your Name]' with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/opz0/terraform-digitalocean-labels/blob/master/LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/cypik/terraform-digitalocean-labels/blob/master/LICENSE) file for details.
