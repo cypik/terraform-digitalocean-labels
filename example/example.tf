@@ -8,5 +8,5 @@ module "labels" {
   label_order = ["name", "environment"]
   attributes  = ["private"]
 
-  }
+}
 
