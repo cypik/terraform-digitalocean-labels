@@ -35,6 +35,7 @@ module "labels" {
   }
 }
 ```
+
 Make sure to replace "your_module_source" with the actual source URL or path to your module.
 
 
