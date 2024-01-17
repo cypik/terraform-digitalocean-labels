@@ -57,8 +57,8 @@ This project is licensed under the **MIT** License - see the [LICENSE](https://g
 
 ## Providers
 
-| Name | Version   |
-|------|-----------|
+| Name | Version |
+|------|---------|
 | <a name="provider_digitalocean"></a> [digitalocean](#provider\_digitalocean) | >= 2.34.1 |
 
 ## Modules
