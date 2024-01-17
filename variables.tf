@@ -24,8 +24,8 @@ variable "attributes" {
 
 variable "managedby" {
   type        = string
-  default     = ""
-  description = "ManagedBy, eg 'Opz0'"
+  default     = "cypik"
+  description = "ManagedBy, eg 'cypik'"
 }
 
 variable "enabled" {
