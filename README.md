@@ -39,7 +39,7 @@ Make sure to replace "your_module_source" with the actual source URL or path to 
 
 
 ## Examples
-For detailed examples on how to use this module, please refer to the examples directory within this repository.
+For detailed examples on how to use this module, please refer to the [examples](https://github.com/cypik/terraform-digitalocean-labels/tree/master/example) directory within this repository.
 
 ## Author
 Your Name Replace **MIT** and **Cypik** with the appropriate license and your information. Feel free to expand this README with additional details or usage instructions as needed for your specific use case.
